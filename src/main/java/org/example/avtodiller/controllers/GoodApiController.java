@@ -18,7 +18,6 @@ import java.io.IOException;
 @RequiredArgsConstructor
 class GoodApiController {
     private final GoodService goodService;
-    // TODO
     @GetMapping("")
     ResponseEntity<GoodsAndCities> goodList(
             @RequestParam(required = false) String content,

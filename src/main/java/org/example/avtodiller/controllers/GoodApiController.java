@@ -62,7 +62,7 @@ class GoodApiController {
     }
 
     @PostMapping(value="/edit", consumes = {"application/x-www-form-urlencoded", "application/json"})
-    ResponseEntity<String> editCar(@RequestBody EditGoodDto good) throws IOException {
+    ResponseEntity<String> editCar(@RequestBody EditGoodDto good)  {
         try {
             goodService.editGood(good);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body("edited");
@@ -72,7 +72,7 @@ class GoodApiController {
     }
 
     @PostMapping("/create")
-    ResponseEntity<String> createGood(@RequestBody CreateGoodDto good, HttpServletRequest request) throws IOException
+    ResponseEntity<String> createGood(@RequestBody CreateGoodDto good, HttpServletRequest request)
     {
         try {
             goodService.saveGood(good, request);
@@ -83,7 +83,7 @@ class GoodApiController {
     }
 
     @PostMapping("/delete/{id}")
-    ResponseEntity<String> deleteCar(@PathVariable Long id) throws IOException {
+    ResponseEntity<String> deleteCar(@PathVariable Long id)  {
         try {
             goodService.deleteGood(id);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body("deleted");
